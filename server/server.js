@@ -46,12 +46,15 @@ server.on('request', (req, res) => {
         case '/':
             res.writeHead(200, { 'Content-type': 'text/html'});
             res.end(html);
+            break;
         case '/app.css':
             res.writeHead(200, {'Content-type': 'text/css'});
             res.end(css);
+            break;
         case '/app.js':
             res.writeHead(200, { 'Content-type': 'text/javascript' });
             res.end(js);
+            break;
     }
 })
 
