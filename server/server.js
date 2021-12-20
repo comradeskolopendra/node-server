@@ -1,3 +1,4 @@
+const { error } = require('console');
 const http = require('http');
 
 const server = http.createServer();
@@ -39,13 +40,15 @@ const js = `
 server.on('request', (req, res) => {
     console.log(req.url)
     switch (req.url) {
+        default:
+            res.writeHead(404, { 'Content-type': 'text/plain' });
+            res.end('конченая ошибка блять');
         case '/':
             res.writeHead(200, { 'Content-type': 'text/html'});
             res.end(html);
         case '/app.css':
             res.writeHead(200, {'Content-type': 'text/css'});
             res.end(css);
-            console.log(css)
         case '/app.js':
             res.writeHead(200, { 'Content-type': 'text/javascript' });
             res.end(js);
